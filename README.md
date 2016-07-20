@@ -17,6 +17,7 @@ Your main `<Route />` node of your application.<br />
 **Notice that there is no `<Router />` element, ReactRouterSSR takes care of creating it on the client and server with the correct parameters**
 
 #### clientOptions (optional)
+- `ReactDOM` [object]: - ReactDOM instance to avoid "Multiple copies of React loaded" error (__required!!!__).
 - `historyHook`: [function(history) : newHistory] - Hook something into history client side.
 - `props` [object]: The additional arguments you would like to give to the `<Router />` component on the client.
 - `wrapperHook` [function(App) : Component]: You can wrap the react-router element with your own providers.
@@ -83,6 +84,7 @@ ReactRouterSSR.Run(AppRoutes);
 ## Complex Example
 ```javascript
 import { IndexRoute, Route } from 'react-router';
+import ReactDOM from 'react-dom';
 import ReactHelmet from 'react-helmet';
 import ReactCookie from 'react-cookie';
 
@@ -96,6 +98,7 @@ AppRoutes = (
 );
 
 ReactRouterSSR.Run(AppRoutes, {
+  ReactDOM,
   props: {
     onUpdate() {
       // Notify the page has been changed to Google Analytics
