@@ -12,15 +12,15 @@ Npm.depends({
   'deepmerge': '0.2.10'
 });
 
-Package.onUse(function(api) {
+Package.onUse(function (api) {
   api.versionsFrom('1.3');
   api.use([
     'ecmascript',
     'tracker',
-    'minimongo@1.0.0',
-    'meteorhacks:fast-render@2.12.0',
+    'minimongo@1.0.17',
+    'meteorhacks:fast-render@2.14.0',
     'meteorhacks:inject-data@2.0.0',
-    'tmeasday:check-npm-versions@0.2.0'
+    'tmeasday:check-npm-versions@0.3.1'
   ]);
 
   api.use([
@@ -35,7 +35,7 @@ Package.onUse(function(api) {
     'autopublish@1.0.0',
     'tmeasday:publish-counts@0.7.0',
     'promise@0.5.1'
-  ], 'server', {weak: true})
+  ], 'server', { weak: true });
 
   api.export('ReactRouterSSR');
   api.mainModule('lib/react-router-ssr.js');
