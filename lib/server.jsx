@@ -137,6 +137,10 @@ function patchResWrite(clientOptions, serverOptions, originalWrite, css, html) {
 
       data = data.replace('<body>', '<body><' + (clientOptions.rootElementType || 'div') + ' id="' + (clientOptions.rootElement || 'react-app') + '"' + rootElementAttributes + '>' + html + '</' + (clientOptions.rootElementType || 'div') + '>');
 
+      if (typeof serverOptions.htmlAfterHook === 'function') {
+        data = serverOptions.htmlAfterHook(data);
+      }
+
       if (typeof serverOptions.webpackStats !== 'undefined') {
         data = addAssetsChunks(serverOptions, data);
       }
