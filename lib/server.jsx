@@ -135,7 +135,7 @@ function patchResWrite(clientOptions, serverOptions, originalWrite, css, html) {
         rootElementAttributes = ' ' + attributes[0] + '="' + attributes[1] + '"';
       }
 
-      data = data.replace('<body>', '<body><' + (clientOptions.rootElementType || 'div') + ' id="' + (clientOptions.rootElement || 'react-app') + '"' + rootElementAttributes + '>' + html + '</' + (clientOptions.rootElementType || 'div') + '>');
+      data = data.replace('<body>', '<body><' + (clientOptions.rootElementType || 'div') + ' id="' + (clientOptions.rootElement || 'react-app') + '"' + rootElementAttributes + '><div>' + html + '</div></' + (clientOptions.rootElementType || 'div') + '>');
 
       if (typeof serverOptions.htmlAfterHook === 'function') {
         data = serverOptions.htmlAfterHook(data);
